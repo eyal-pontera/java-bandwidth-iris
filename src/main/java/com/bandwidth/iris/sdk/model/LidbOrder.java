@@ -4,7 +4,7 @@ import com.bandwidth.iris.sdk.IrisClient;
 import com.bandwidth.iris.sdk.IrisPath;
 import com.bandwidth.iris.sdk.IrisResponse;
 
-import javax.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -45,9 +45,8 @@ public class LidbOrder extends BaseModel {
     }
 
     public static LidbOrder get(IrisClient client, String orderId) throws Exception {
-        LidbOrderResponse orderResponse = client.get(client.buildAccountModelUri(
-                new String[] { IrisPath.LIDB_ORDER_URI_PATH, orderId }), LidbOrderResponse.class);
-        LidbOrder order = orderResponse.getOrder();
+        LidbOrder order = client.get(client.buildAccountModelUri(
+                new String[] { IrisPath.LIDB_ORDER_URI_PATH, orderId }), LidbOrder.class);
         order.setClient(client);
         return order;
     }
