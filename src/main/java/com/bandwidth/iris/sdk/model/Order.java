@@ -3,10 +3,10 @@ package com.bandwidth.iris.sdk.model;
 import com.bandwidth.iris.sdk.IrisClient;
 import com.bandwidth.iris.sdk.IrisPath;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 @XmlRootElement(name = "Order")
@@ -51,6 +51,8 @@ public class Order extends BaseModel {
     private ZIPSearchAndOrderType zipSearchAndOrderType;
     @XmlElement(name = "CombinedSearchAndOrderType")
     private CombinedSearchAndOrderType combinedSearchAndOrderType;
+    @XmlElement(name = "VoiceConfigurationPackageId")
+    private String voiceConfigurationPackageId;
 
 
     public static OrderResponse create(IrisClient client, Order order) throws Exception {
@@ -217,6 +219,14 @@ public class Order extends BaseModel {
 
     public void setCombinedSearchAndOrderType(CombinedSearchAndOrderType combinedSearchAndOrderType) {
         this.combinedSearchAndOrderType = combinedSearchAndOrderType;
+    }
+
+    public String getVoiceConfigurationPackageId() {
+        return voiceConfigurationPackageId;
+    }
+
+    public void setVoiceConfigurationPackageId(String voiceConfigurationPackageId) {
+        this.voiceConfigurationPackageId = voiceConfigurationPackageId;
     }
 
     public void addNote(Note note) throws Exception {
